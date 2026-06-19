@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 发现游戏本来的乐趣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(160deg, #fdebd0 0%, #f5cba7 40%, #f0b27a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #3e2c1b;
+        }
+
+        .page-wrap {
+            max-width: 960px;
+            width: 100%;
+        }
+
+        /* 主卡片 */
+        .hero-card {
+            background: #fffcf6;
+            border-radius: 36px;
+            padding: 2.8rem 2.5rem 2.8rem;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25);
+            transition: box-shadow 0.2s ease;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero-card:hover {
+            box-shadow: 0 24px 50px -14px rgba(100, 55, 20, 0.3);
+        }
+
+        /* 主视觉区 */
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.4rem;
+            margin-bottom: 2.6rem;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: #e8d5bf;
+            color: #4d2e16;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 650;
+            color: #2c1a0a;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #b87333, #9a5a2b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .hero-desc {
+            font-size: 1.12rem;
+            color: #5e3f24;
+            margin-top: 0.5rem;
+            max-width: 70%;
+        }
+
+        @media (max-width: 600px) {
+            .hero-card {
+                padding: 2rem 1.3rem;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-desc {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            .hero-visual {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* 介绍段落 — 自然链接嵌入 */
+        .intro-text {
+            font-size: 1.05rem;
+            margin: 1.8rem 0 2.4rem;
+            color: #3c2a1a;
+            background: #fcf6ed;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            border-left: 5px solid #d7a86e;
+        }
+
+        .intro-text a {
+            color: #9a5a2b;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #e2c4a8;
+            padding-bottom: 1px;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #9a5a2b;
+            color: #7a4420;
+        }
+
+        /* 用途卡片组 — 信息卡片式布局 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .info-card {
+            background: #fbf6ec;
+            border-radius: 24px;
+            padding: 1.6rem 1.2rem 1.4rem;
+            box-shadow: 0 6px 14px rgba(120, 70, 25, 0.08);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            border: 1px solid #f2e3d2;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -8px rgba(120, 70, 25, 0.16);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2f1e0e;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-card h3::before {
+            content: "▹";
+            color: #b87333;
+            font-size: 1.3rem;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #4e3722;
+            margin-bottom: 0.1rem;
+        }
+
+        /* 适合人群区块 */
+        .audience-section {
+            background: #fcf4e8;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 1.8rem 0;
+            border: 1px solid #eddcce;
+        }
+
+        .audience-section h2 {
+            font-size: 1.4rem;
+            font-weight: 620;
+            color: #2f1e0e;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            list-style: none;
+        }
+
+        .audience-list li {
+            background: #e9d7c4;
+            padding: 0.3rem 1.1rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            color: #2f1b0a;
+            font-weight: 450;
+        }
+
+        /* FAQ 摘要 (小型) */
+        .faq-mini {
+            background: #faf1e3;
+            border-radius: 22px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 2.6rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3b2816;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item strong {
+            color: #4d2e16;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            color: #4d3724;
+            font-size: 0.95rem;
+        }
+
+        /* 装饰性圆角按钮感链接 — 但此链接仅做点缀、不抢镜 */
+        .link-badge {
+            display: inline-block;
+            background: #dfc7af;
+            color: #3c2410;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: background 0.15s, border 0.15s;
+            margin-top: 0.2rem;
+        }
+
+        .link-badge:hover {
+            background: #d3b696;
+            border-color: #b87333;
+        }
+
+        .footer-note {
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #5b422b;
+            text-align: center;
+            border-top: 1px solid #e7d3c0;
+            padding-top: 1.8rem;
+        }
+
+        .footer-note a {
+            color: #7a4b24;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #dbbc9f;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #7a4b24;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .audience-section {
+                padding: 1.4rem 1.2rem;
+            }
+            .faq-mini {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <div class="hero-card">
+        <!-- 主视觉 -->
+        <div class="hero-visual">
+            <span class="hero-label">◈ 今日游感</span>
+            <h1 class="hero-title">在时间里，<span>爱游戏</span>的方式</h1>
+            <p class="hero-desc">不只是一种消遣，更是一段属于自己的叙事。</p>
+        </div>
+
+        <!-- 介绍段落 + 自然链接嵌入 -->
+        <div class="intro-text">
+            <p>有些瞬间，你会想起某个傍晚打开模拟器，或是和朋友争论某个关卡的设计。那些具体的感受，往往比通关更长久。这正是我们谈论<a href="https://mhome-i-game.com.cn">爱游戏</a>时真正想表达的：不是沉迷，而是对那种“投入感”的珍视。一个游戏让你停下来的理由，常常藏在意想不到的交互、一句对白或一片黄昏光影里。</p>
+        </div>
+
+        <!-- 信息卡片：用途卡片 -->
+        <div class="card-grid">
+            <div class="info-card">
+                <h3>独自沉浸</h3>
+                <p>抛开效率与排名，只为自己留一段专注的时光。可以是解谜、叙事或策略，节奏由你定。</p>
+            </div>
+            <div class="info-card">
+                <h3>共同记忆</h3>
+                <p>联机合作、分屏对战、甚至只是观看彼此的操作，游戏常成为朋友之间默契的入口。</p>
+            </div>
+            <div class="info-card">
+                <h3>创作灵感</h3>
+                <p>关卡设计、像素美术、世界观构建——很多人的创作生涯，恰恰始于对某款游戏的好奇。</p>
+            </div>
+            <div class="info-card">
+                <h3>放松角落</h3>
+                <p>不需要目标，随意漫步、听一段原声、或是建造一个微小世界。游戏也可以是白噪音。</p>
+            </div>
+        </div>
+
+        <!-- 适合人群 (不带夸张承诺) -->
+        <div class="audience-section">
+            <h2>谁可能会喜欢这样的氛围</h2>
+            <ul class="audience-list">
+                <li>喜欢慢慢探索的玩家</li>
+                <li>在意剧情和角色的体验者</li>
+                <li>偶尔怀旧的老玩家</li>
+                <li>对游戏开发好奇的爱好者</li>
+                <li>只想轻松一刻的普通人</li>
+                <li>以及……还不确定但愿意试试的你</li>
+            </ul>
+        </div>
+
+        <!-- 自然段落 + 另一个链接嵌入（句子中） 同时保留「爱游戏」文本 -->
+        <p style="margin: 0.5rem 0 1.8rem; color: #3c2a1a; font-size: 1rem;">
+            如果你对游戏文化或日常启发感兴趣，或许可以到 <a href="https://mhome-i-game.com.cn" style="color:#7a4b24; font-weight:500; text-decoration: none; border-bottom: 2px solid #dfc0a5;">爱游戏</a> 看看那里的记录与分享——既不追赶热点，也不刻意煽情，只是安静地聊聊玩过的和正在玩的。
+        </p>
+
+        <!-- FAQ 摘要 (简短，不展开) -->
+        <div class="faq-mini">
+            <h3>一些常见的想法</h3>
+            <div class="faq-item">
+                <strong>一定要玩很多游戏才能算“爱游戏”吗？</strong>
+                <p>不一定。重要的是你是否享受其中某个片刻。玩得少但认真感受，也是一种方式。</p>
+            </div>
+            <div class="faq-item">
+                <strong>这里只讨论某一种类型吗？</strong>
+                <p>不限制。独立作品、经典老游戏、小众实验作品都可能出现，看缘分。</p>
+            </div>
+            <div class="faq-item">
+                <strong>没有固定更新时间吧？</strong>
+                <p>是的，更像私人笔记的节奏，偶尔更新。适合偶然遇见，而不是追赶。</p>
+            </div>
+        </div>
+
+        <!-- 圆角按钮感链接 —— 但依然保持文字为「爱游戏」 不出现点击进入等词 -->
+        <a href="https://mhome-i-game.com.cn" class="link-badge">爱游戏</a>
+
+        <!-- 页脚自然提及 -->
+        <div class="footer-note">
+            一些关于游戏与日常的碎片 · <a href="https://mhome-i-game.com.cn">爱游戏</a>
+        </div>
+    </div>
+    <!-- 结束主卡片 -->
+</div>
+</body>
+</html>

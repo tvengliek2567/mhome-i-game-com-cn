@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tvengliek2567.github.io/mhome-i-game-com-cn/sitemap.xml
