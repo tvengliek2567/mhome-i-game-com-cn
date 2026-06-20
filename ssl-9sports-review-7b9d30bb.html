@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再访 · 九游体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde9dd 0%, #f7d4bc 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.8rem 1.2rem;
+        }
+        .card {
+            max-width: 760px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            background-color: #fffcf9;
+            border-radius: 44px;
+            padding: 2.6rem 2.8rem;
+            box-shadow: 0 16px 40px -12px rgba(180, 100, 60, 0.2), 0 6px 14px rgba(243, 184, 142, 0.1);
+            transition: box-shadow 0.25s;
+        }
+        .card:hover {
+            box-shadow: 0 20px 48px -8px rgba(160, 80, 40, 0.25);
+        }
+        .hero-line {
+            font-size: 1.8rem;
+            font-weight: 450;
+            color: #6d3c2c;
+            letter-spacing: 0.02em;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #d9946c;
+            padding-left: 1.2rem;
+        }
+        .hero-line span {
+            display: inline-block;
+            background: #f3e1d6;
+            padding: 0.05rem 0.6rem;
+            border-radius: 30px;
+            color: #7c4c33;
+        }
+        .intro-text {
+            color: #4a332b;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 1.2rem 0 1.6rem 0;
+        }
+        .intro-text a {
+            color: #a5593b;
+            text-decoration: none;
+            font-weight: 480;
+            background: linear-gradient(to right, #f7d7c4, #f7d7c4) no-repeat 0 95%;
+            background-size: 0 2px;
+            transition: background-size 0.25s;
+            padding: 0 0.1rem;
+        }
+        .intro-text a:hover {
+            background-size: 100% 2px;
+        }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.2rem;
+            margin: 2rem 0 1.8rem 0;
+        }
+        .feature-item {
+            flex: 1 1 190px;
+            background: #fcf4ef;
+            padding: 1.2rem 1rem;
+            border-radius: 28px;
+            box-shadow: 0 2px 6px rgba(210, 140, 100, 0.08);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            background: #faede6;
+        }
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #6a3f2e;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .feature-item h3 i {
+            font-size: 1.15rem;
+            font-style: normal;
+        }
+        .feature-item p {
+            color: #5a4037;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .story-block {
+            margin: 1.6rem 0 2rem 0;
+            background: #fff6ef;
+            padding: 1.4rem 1.6rem;
+            border-radius: 32px;
+            border: 1px solid #f2d6c3;
+        }
+        .story-block p {
+            color: #4d342b;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .story-block .highlight {
+            background: #ebd4c2;
+            padding: 0.1rem 0.5rem;
+            border-radius: 20px;
+            color: #4f2f21;
+            font-weight: 460;
+        }
+        .faq-summary {
+            margin: 1.8rem 0 1.2rem 0;
+            border-top: 1px dashed #dbb7a2;
+            padding-top: 1.5rem;
+        }
+        .faq-summary details {
+            margin-bottom: 0.8rem;
+        }
+        .faq-summary summary {
+            font-weight: 470;
+            color: #673e2d;
+            cursor: pointer;
+            padding: 0.4rem 0.6rem;
+            border-radius: 40px;
+            background: #f3e4da;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .faq-summary summary:hover {
+            background: #edd3bf;
+        }
+        .faq-summary details p {
+            margin: 0.7rem 0 0.2rem 1.2rem;
+            color: #543d33;
+            font-size: 0.93rem;
+            line-height: 1.5;
+        }
+        .gentle-end {
+            margin-top: 1.8rem;
+            padding: 1.2rem 1.5rem;
+            background: #fceddf;
+            border-radius: 100px 40px 40px 100px;
+            color: #50382d;
+            font-size: 0.95rem;
+            text-align: center;
+            border: 1px solid #eedbcb;
+        }
+        .gentle-end a {
+            color: #8b563a;
+            font-weight: 520;
+            text-decoration: none;
+            border-bottom: 1px dotted #b67c5b;
+            transition: border-bottom 0.2s, color 0.15s;
+        }
+        .gentle-end a:hover {
+            border-bottom: 1px solid #794b30;
+            color: #653b27;
+        }
+        .footnote {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #9f7c69;
+            text-align: center;
+        }
+        @media (max-width: 520px) {
+            .card {
+                padding: 1.8rem 1.5rem;
+                border-radius: 32px;
+            }
+            .hero-line {
+                font-size: 1.5rem;
+                padding-left: 0.9rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+            }
+            .feature-item {
+                flex: 1 1 100%;
+            }
+            .story-block {
+                padding: 1rem 1.2rem;
+            }
+            .gentle-end {
+                border-radius: 40px;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hero-line">
+            <span>又见面了</span> · 熟悉的角落
+        </div>
+
+        <div class="intro-text">
+            有些人离开后便不再回头，有些页面却值得再次打开。当你输入那串网址，或从收藏夹里轻轻点下——<a href="https://ssl-9sports.com">九游体育</a>依然在这里，界面或许微调过，但那种让你安心的浏览感没有变。从初次偶然相遇，到后来的习惯性停留，它渐渐成了一个可以放松翻看的地方。
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3><i>📌</i> 留存 · 随手记</h3>
+                <p>收藏夹里的位置一直没变，想回来时不用费力寻找。熟悉的结构让每次重访都轻松自如。</p>
+            </div>
+            <div class="feature-item">
+                <h3><i>🔄</i> 节奏 · 刚刚好</h3>
+                <p>内容更新不疾不徐，没有频繁的弹窗打扰。你大可以隔几天再来看，总有新鲜感却不会陌生。</p>
+            </div>
+            <div class="feature-item">
+                <h3><i>🧩</i> 陪伴 · 日常感</h3>
+                <p>像一本翻到中段的杂志，随意翻开一页就能读下去。不需要刻意关注，它就在浏览器的角落。</p>
+            </div>
+        </div>
+
+        <div class="story-block">
+            <p>
+                <span class="highlight">第二次打开</span> 是一种微妙的情感——页面加载的那几秒，好像在等一个老朋友的消息。你记得这里的内容风格，也记得自己上次读到哪里。<a href="https://ssl-9sports.com" style="background: #ebd4c2; padding:0.1rem 0.5rem; border-radius:20px; color:#4f2f21; text-decoration:none;">九游体育</a>没有刻意挽留谁，
+                但那些常回来的人自然懂得：一个好的站点，不必大声招呼，你自会记得路。
+            </p>
+        </div>
+
+        <div class="faq-summary">
+            <details>
+                <summary>🔖 为什么值得再次收藏？</summary>
+                <p>不需要注册也能浏览大部分内容，界面干净，没有铺天盖地的弹窗。把链接放到书签栏，什么时候想起都可以点开。</p>
+            </details>
+            <details>
+                <summary>📆 每次回来能看到什么？</summary>
+                <p>内容会有规律更新，但整体调性保持一致。不会突然变成完全陌生的样子，你熟悉的那部分始终都在。</p>
+            </details>
+        </div>
+
+        <div class="gentle-end">
+            <span>下次再回来时，它应该还在这里。你可以直接输入，或从书签里找到——</span>
+            <a href="https://ssl-9sports.com">九游体育</a>
+            <span style="display:inline-block; margin-left:0.2rem;">就像推开一扇半掩的门。</span>
+        </div>
+
+        <div class="footnote">
+            — 偶尔回来，便足够 —
+        </div>
+    </div>
+</body>
+</html>
