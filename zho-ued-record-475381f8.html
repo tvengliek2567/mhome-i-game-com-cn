@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UED 体育 · 日常观赛指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f6f3;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 首页横幅 */
+        .hero-banner {
+            background: #ffffff;
+            padding: 3rem 2rem 2.2rem;
+            border-radius: 28px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #d2b48c, #b8a07a, #d2b48c, transparent);
+            border-radius: 4px;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1f2a2f;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title span {
+            color: #8b7a62;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #6b6b6b;
+            max-width: 480px;
+            margin: 1rem auto 0;
+            border-top: 1px solid #eae7e2;
+            padding-top: 1rem;
+        }
+
+        /* 三段式自然介绍 */
+        .section-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01), 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .section-card h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #2a3b41;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #ece9e4;
+        }
+
+        .section-card p {
+            margin-bottom: 1.1rem;
+            color: #2f2f2f;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-card .highlight-text {
+            background: #f4efe8;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-weight: 450;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 2.2rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+            text-align: center;
+            border: 1px solid #ece9e4;
+        }
+
+        .footer-note p {
+            font-size: 1rem;
+            color: #3a3a3a;
+            max-width: 520px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .footer-note .link-sentence {
+            font-size: 1.05rem;
+            background: #f3f0ea;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        .footer-note a {
+            color: #6b4f32;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #cfbca6;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-note a:hover {
+            color: #3d2c1e;
+            border-bottom-color: #3d2c1e;
+        }
+
+        .small-meta {
+            font-size: 0.8rem;
+            color: #98948c;
+            margin-top: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+
+            .hero-banner {
+                padding: 2rem 1.2rem 1.6rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .section-card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .section-card h2 {
+                font-size: 1.2rem;
+            }
+
+            .footer-note {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .footer-note .link-sentence {
+                padding: 0.6rem 1rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* 极简留白调整 */
+        hr {
+            border: none;
+            border-top: 1px solid #e5e1da;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- hero 横幅 -->
+    <div class="hero-banner">
+        <h1 class="hero-title">观赛的 <span>简明指南</span></h1>
+        <p class="hero-sub">从赛程到回放，少一些犹豫，多一些沉浸。</p>
+    </div>
+
+    <!-- 三段自然介绍：背景说明 + 特点 + 场景/提示 -->
+    <div class="section-card">
+        <h2>· 日常背景</h2>
+        <p>体育直播和赛事资讯早已成为很多人生活节奏的一部分。从周末的焦点战到深夜的海外联赛，每个人都有自己的观赛习惯。而一个清晰、不绕路的信息入口，能让这份热爱保持得更自然——<span class="highlight-text">不用翻找，不必焦虑</span>。</p>
+        <p>正因如此，<strong>ued体育</strong> 的定位始终围绕一件事：让体育内容更靠近你的日常浏览方式。没有浮夸的弹窗，没有冗余的跳转，只提供赛事索引与基础数据，帮你更快进入比赛状态。</p>
+    </div>
+
+    <div class="section-card">
+        <h2>· 三个小特点</h2>
+        <p><strong>赛事覆盖。</strong> 足球、篮球、网球以及部分小众项目，主流联赛的赛程和实时比分基本都能找到。数据更新节奏稳定，满足从赛前到终场的查询需求。</p>
+        <p><strong>界面克制。</strong> 极简的列表与卡片布局，减少视觉噪音。深色与浅色主题之间切换流畅，无论是白天通勤还是夜晚沙发观赛，眼睛都不会太累。</p>
+        <p><strong>回放入口。</strong> 部分重点比赛提供赛后集锦或完整回放链接，省去自行搜索的时间。对于错过直播的球迷来说，这是一个很踏实的补充。</p>
+    </div>
+
+    <div class="section-card">
+        <h2>· 使用场景与提醒</h2>
+        <p>在手机或电脑上打开网站，首页会直接展示当日热门赛程。你可以按联赛筛选，也可以直接搜索球队名称。如果你习惯赛前看一眼首发阵容，或者赛后快速浏览数据统计，这里基本都能满足。</p>
+        <p>需要提醒的是，<span class="highlight-text">部分直播源为外部合作链接</span>，观看时注意网络环境与设备兼容性。另外，赛程时间偶尔会有临时调整，建议开赛前几分钟回到页面确认一下最新状态。</p>
+        <p>如果你不太确定从哪开始，不妨先浏览「今日赛事」板块，那里通常是信息最集中的区域。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>如果你正在寻找一个稳定、不花哨的体育信息站点，可以试着把这里加入书签。</p>
+        <div class="link-sentence">
+            日常浏览与查赛程，我习惯打开 <a href="https://zho-ued.com">ued体育</a> 看一眼。
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6f6b63;">没有多余的引导，只有你需要的比赛。</p>
+        <div class="small-meta">— 保持简单，保持专注 —</div>
+    </div>
+
+</div>
+</body>
+</html>
